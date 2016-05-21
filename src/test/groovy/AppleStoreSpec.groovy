@@ -30,7 +30,7 @@ class AppleStoreSpec extends GebReportingSpec {
         continueButton.click()
         fillForm()
 
-        //Expectation was for the cost review to show up on the info page.  Only occurs when returning to the page.
+        //Expectation was for the cost review to show up on the info page.  Only occurs when returning to the page. Bug?
         /*Float shippingCost = getShippingCost()
         Float totalPrice = getTotalPrice()
 
@@ -61,7 +61,7 @@ class AppleStoreSpec extends GebReportingSpec {
 
         at DashBoardPage
         profileTab.click()
-        firstName("Joe")
+        setFirstName("Joe")
         updateProfile.click()
         logout()
 
@@ -74,7 +74,7 @@ class AppleStoreSpec extends GebReportingSpec {
         profileTab.click()
 
         then:
-        assert firstName == 'Joe'
+        assert getFirstName() == 'Joe'
 
     }
 

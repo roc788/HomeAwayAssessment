@@ -2,14 +2,13 @@ import org.apache.tools.ant.taskdefs.condition.Os
 
 ext {
     // The drivers we want to use
-    drivers = ["firefox", "chrome", "phantomJs"]
+    drivers = ["firefox", "chrome","ie"]
 
     ext {
         groovyVersion = '2.4.5'
         gebVersion = '0.13.1'
         seleniumVersion = '2.51.0'
         chromeDriverVersion = '2.19'
-        phantomJsVersion = '1.9.7'
     }
 }
 
@@ -37,11 +36,7 @@ dependencies {
     // Drivers
     testCompile "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
     testCompile "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
-    // using a custom version of phantomjs driver for now as the original one does not support WebDriver > 2.43.1
-    testCompile("com.codeborne:phantomjsdriver:1.2.1") {
-        // phantomjs driver pulls in a different selenium version
-        transitive = false
-    }
+    testCompile "org.seleniumhq.selenium:selenium-ie-driver:$seleniumVersion"
 }
 
 drivers.each { driver ->
@@ -55,9 +50,6 @@ drivers.each { driver ->
 
         systemProperty "geb.build.reportsDir", reporting.file("$name/geb")
         systemProperty "geb.env", driver
-
-        // If you wanted to set the baseUrl in your build…
-        // systemProperty "geb.build.baseUrl", "http://myapp.com"
     }
 }
 
@@ -66,13 +58,6 @@ chromeTest {
 
     def chromedriverFilename = Os.isFamily(Os.FAMILY_WINDOWS) ? "chromedriver.exe" : "chromedriver"
     systemProperty "webdriver.chrome.driver", new File(unzipChromeDriver.outputs.files.singleFile, chromedriverFilename).absolutePath
-}
-
-phantomJsTest {
-    dependsOn unzipPhantomJs
-
-    def phantomJsFilename = Os.isFamily(Os.FAMILY_WINDOWS) ? "phantomjs.exe" : "bin/phantomjs"
-    systemProperty "phantomjs.binary.path", new File(unzipPhantomJs.outputs.files.singleFile, phantomJsFilename).absolutePath
 }
 
 test {

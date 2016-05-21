@@ -9,6 +9,6 @@ class LoginPage extends Page {
     static content = {
         username(wait: true){ name -> $("input[name='log']").value(name)}
         password{ password -> $("input[name='pwd']").value(password)}
-        loginButton{ $("form[name='loginform'] input[name='submit']")}
+        loginButton{ $("input[name='wp-submit']")}
     }
 }

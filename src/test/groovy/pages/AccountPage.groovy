@@ -10,7 +10,7 @@ class AccountPage extends Page {
         username(wait: true){ name -> $("input[name='log']").value(name)}
         password{ password -> $("input[name='pwd']").value(password)}
         loginButton{ $("form[name='loginform'] input[name='submit']")}
-        siteAdmin{ $("a", text: 'Site Admin')}
+        siteAdmin(wait: true){ $("a", text: 'Site Admin')}
     }
 
 
