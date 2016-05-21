@@ -1,11 +1,11 @@
 import geb.spock.GebReportingSpec
-import pages.AccountPage
-import pages.CheckoutPage
-import pages.DashBoardPage
-import pages.HomePage
-import pages.IPhonesPage
-import pages.LoginPage
-import pages.TransactionResultsPage
+import pages.applestore.AccountPage
+import pages.applestore.CheckoutPage
+import pages.applestore.DashBoardPage
+import pages.applestore.HomePage
+import pages.applestore.IPhonesPage
+import pages.applestore.LoginPage
+import pages.applestore.TransactionResultsPage
 
 class AppleStoreSpec extends GebReportingSpec {
 

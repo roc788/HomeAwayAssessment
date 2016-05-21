@@ -21,6 +21,9 @@ repositories {
 }
 
 dependencies {
+
+    testCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+
     // If using Spock, need to depend on geb-spock
     testCompile "org.gebish:geb-spock:$gebVersion"
     testCompile("org.spockframework:spock-core:1.0-groovy-2.4") {

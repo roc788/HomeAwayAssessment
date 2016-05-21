@@ -1,4 +1,4 @@
-package pages
+package pages.applestore
 
 import geb.Page
 

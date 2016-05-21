@@ -14,9 +14,17 @@ The build is setup to work with Firefox, Chrome and Internet Explorer. Reference
 
 ## Test Pre-requisites and assumptions
 
+### Exercise 1
+
 For the test case in which the user must log in and modify his profile, the user must already be registered. You can see in the test that "Joe" is the username and "foobar" is the password.  This user with this password must exist for this test to pass as it is currently written.
 
 Item selection and deletion is based on the exact name given for each item, as shown in the tests.  It is assumed that these names will not be modified.
+
+### Exercise 2
+
+There must be an API key provided for the tests.  My API is included in the test class as it currently stands.
+
+Since the site uses SSL authentication, for testing purposes, I ignored the strict SSL issues, assuming that the client would not have any SSL issues connecting otherwise.
 
 ## Usage
 
@@ -34,6 +42,14 @@ Replace `./gradlew` with `gradlew.bat` in the above examples if you're on Window
 
 ## Issues Found
 
+### Exercise 1
+
 The price summary does not show up when you first arrive at the info page during a purchase.  However, when you navigate away from the page and back to the info page, it shows up.
 
 It would be easier to write element closures if all pertinent elements had a consistant attribute which had a value that was unique to the given element. It would then be less likely for a change to the page to break the test due to a necessary change to the closure.
+
+### Exercise 2
+
+The wording in the slides are misleading for this exercise.  The URL given is for the documentation, not the endpoint.
+
+There is no country key returned in the json when querying for a station by the ID.
