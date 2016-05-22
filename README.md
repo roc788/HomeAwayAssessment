@@ -10,7 +10,7 @@ For working with the Windows OS, I leveraged build tasks from the [Geb Examples]
 
 There should be a `src/test/groovy` and a `src/test/resources` directory.  The groovy directory should contain all tests, Page classes, and Module classes.  The resources directory should at least contain the `GebConfig.groovy` file.  This file is ran before tests are run, and specifies what driver to use, what base url to use, and other Geb configurations.
 
-The build is setup to work with Firefox, Chrome and Internet Explorer. References to these browsers are found in the `build.gradle` and the `src/test/resources/GebConfig.groovy` files.
+The build is setup to work with Firefox and Chrome. References to these browsers are found in the `build.gradle` and the `src/test/resources/GebConfig.groovy` files.
 
 ## Test Pre-requisites and assumptions
 
@@ -32,7 +32,6 @@ The following commands will launch the tests with the individual browsers:
 
     ./gradlew chromeTest
     ./gradlew firefoxTest
-    ./gradlew ieTest
 
 To run with all, you can run:
 

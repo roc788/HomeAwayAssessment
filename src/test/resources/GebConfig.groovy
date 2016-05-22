@@ -7,13 +7,14 @@
 
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.firefox.FirefoxDriver
-import org.openqa.selenium.ie.InternetExplorerDriver
 
 waiting {
 	timeout = 10
 }
 
 baseUrl = "http://store.demoqa.com"
+
+//Driver setup here as well for now when running in IDE
 driver = {
 	def driverInstance = new FirefoxDriver()
 	driverInstance.manage().window().maximize()
@@ -42,15 +43,6 @@ environments {
 			driverInstance
 		}
 	}
-
-	// run via “./gradlew ieTest”
-    ie {
-        driver = {
-			def driverInstance = new InternetExplorerDriver()
-			driverInstance.manage().window().maximize()
-			driverInstance
-		}
-    }
 
 }
 
