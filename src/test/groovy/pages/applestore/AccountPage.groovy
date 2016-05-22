@@ -8,8 +8,8 @@ class AccountPage extends Page {
 
     static content = {
         username(wait: true){ name -> $("input[name='log']").value(name)}
-        password{ password -> $("input[name='pwd']").value(password)}
-        loginButton{ $("form[name='loginform'] input[name='submit']")}
+        password(wait: true){ password -> $("input[name='pwd']").value(password)}
+        loginButton(wait: true){ $("form[name='loginform'] input[name='submit']")}
         siteAdmin(wait: true){ $("a", text: 'Site Admin')}
     }
 

@@ -7,9 +7,9 @@ class HomePage extends Page {
     static at = { title == 'ONLINE STORE | Toolsqa Dummy Test site' }
 
     static content = {
-        productCategoryMenu { $("a", text: "Product Category") }
-        productMenuItem { product -> $("a", text: product)}
-        account {$("a.account_icon")}
+        productCategoryMenu(wait: true){ $("a", text: "Product Category") }
+        productMenuItem(wait: true){ product -> $("a", text: product)}
+        account(wait: true){$("a.account_icon")}
     }
 
     def selectProduct(String product) {
