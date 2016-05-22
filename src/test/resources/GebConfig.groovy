@@ -14,7 +14,11 @@ waiting {
 }
 
 baseUrl = "http://store.demoqa.com"
-driver = { new FirefoxDriver() }
+driver = {
+	def driverInstance = new FirefoxDriver()
+	driverInstance.manage().window().maximize()
+	driverInstance
+}
 reportsDir = "reports"
 
 environments {
@@ -22,18 +26,30 @@ environments {
 	// run via “./gradlew chromeTest”
 	// See: http://code.google.com/p/selenium/wiki/ChromeDriver
 	chrome {
-		driver = { new ChromeDriver() }
+		driver = {
+			def driverInstance = new ChromeDriver()
+			driverInstance.manage().window().maximize()
+			driverInstance
+		}
 	}
 	
 	// run via “./gradlew firefoxTest”
 	// See: http://code.google.com/p/selenium/wiki/FirefoxDriver
 	firefox {
-		driver = { new FirefoxDriver() }
+		driver = {
+			def driverInstance = new FirefoxDriver()
+			driverInstance.manage().window().maximize()
+			driverInstance
+		}
 	}
 
 	// run via “./gradlew ieTest”
     ie {
-        driver = { new InternetExplorerDriver() }
+        driver = {
+			def driverInstance = new InternetExplorerDriver()
+			driverInstance.manage().window().maximize()
+			driverInstance
+		}
     }
 
 }
